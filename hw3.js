@@ -1,18 +1,28 @@
 const express = require('express');
 const app = express();
 var fetch = require('node-fetch');
-
+var masteries_storage;
+var champ_storage;
 Promise.all([fetch('http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'),
     fetch('https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/24395066?api_key=RGAPI-96dabba7-12a9-444e-be94-d57411f0c0ae')])
     .then((res) => {
     return Promise.all([res[0].json(), res[1].json()]);
 }).then((json) =>
 {
+    masteries_storage = json[1];
+    champ_storage = json[0];
     console.log(json);
-}
-);
+}).catch(function (e) {
+    console.log("There was some sort of error");
+    console.log(e);
 
+});
 
+app.route('/')
+    .get(function (req, res) {
+        res.send("please");
+    })
+Promise()
 
 class Masteries_decoder{
     constructor (masteries_data){
