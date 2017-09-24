@@ -1,7 +1,18 @@
 const express = require('express');
 const app = express();
 var fetch = require('node-fetch');
-var list_champs;
+
+Promise.all([fetch('http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'),
+    fetch('https://na1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/24395066?api_key=RGAPI-96dabba7-12a9-444e-be94-d57411f0c0ae')])
+    .then((res) => {
+    return Promise.all([res[0].json(), res[1].json()]);
+}).then((json) =>
+{
+    console.log(json);
+}
+);
+
+
 
 class Masteries_decoder{
     constructor (masteries_data){
