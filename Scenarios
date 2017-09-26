@@ -1,16 +1,16 @@
 HW 3 Scenarios
 
----- 1) Retrieve, add, update, and delete champs from the full list
+1) Retrieve, add, update, and delete champs from the full list
 	-> GET, PUT, POST, DELETE /champs/list
----- 2) Retrieve data on the average base stat of champs
+2) Retrieve data on the average base stat of champs
 	-> GET /champs/:stat/average
----- 3) Retrieve a lit of most difficult champs with capability to add champions 
+3) Retrieve a lit of most difficult champs with capability to add champions 
 	-> GET /champs/difficult, put /champs/difficult/:champid
 4) Retrieve a list of the server admins top n champs 
-	-> GET,POST /champ/top/:number 
+	-> GET /champ/top/:number 
 5) Retrieve a certain champ and link to the LOL homepage for that champ
-	-> GET,POST /champ/:champid
-6) Retrieve a list of the server admins lowest n champs 
-	-> GET,POST /champ/low/:number 
-7) Retrieve a lit of free to play champs
-	-> champs/free-to-play
+	-> GET /champ/:champid
+6) looks up and finds how many tanks their are based upon health and defense
+	-> GET '/tank' 
+7) allows people to get a matchup of classes
+	-> get '/classes/:classid/vs/:classid2' allows people to get a matchup of classes
